@@ -39,8 +39,17 @@ async function copyToClipboard() {
         <p><a class="inline_disabled" href="https://community.canvaslms.com/t5/Student-Guide/tkb-p/student#Assignments" target="_blank" rel="noopener">Canvas Student Guide - Assignments</a></p>
     `;
 
+    const prompt = '<p>Test Prompt<p>';
+    const instructions = '<p>Test Instructions<p>';
+    const readings = '<p>Test Readings<p>';
+    const videos = '<p>Test Videos<p>';
+    const interactive_lesson = '<p>Test Interactive Lesson<p>';
+    const cohort_session = '<p>Test Cohort Session<p>';
+    const todo = '<p>Test To-Do<p>';
+
     try {
-        const response = await fetch('assignment.html');
+        const templateFile = document.getElementById('template').value;
+        const response = await fetch(templateFile);
         let template = await response.text();
 
         template = template
@@ -50,7 +59,14 @@ async function copyToClipboard() {
             .replace(/\${overview}/g, overview)
             .replace(/\${guidelines}/g, guidelines)
             .replace(/\${rubric}/g, rubric)
-            .replace(/\${technicalSupport}/g, technical_support);
+            .replace(/\${technicalSupport}/g, technical_support)
+            .replace(/\${prompt}/g, prompt)
+            .replace(/\${instructions}/g, instructions)
+            .replace(/\${readings}/g, readings)
+            .replace(/\${videos}/g, videos)
+            .replace(/\${interactive_lesson}/g, interactive_lesson)
+            .replace(/\${cohort_session}/g, cohort_session)
+            .replace(/\${todo}/g, todo);
 
         navigator.clipboard.writeText(template)
             .then(() => alert('Copied to clipboard.'))
