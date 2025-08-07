@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Builder</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Assignment Builder</h1>
+
+    <h2>Settings</h2>
+
+    <input type="checkbox" id="edit-rubric" name="edit-rubric">
+    Edit Rubric
+    <br>
+
+    <input type="checkbox" id="edit-technical-support" name="edit-technical-support">
+    Edit Technical Support
+    <br>
+
+    <h2>Input</h2>
+
+    <h3>Module</h3>
+    <select id="module">
+        <option>GS</option>
+        <option>M1</option>
+        <option>M2</option>
+        <option>M3</option>
+        <option>M4</option>
+        <option>M5</option>
+        <option>M6</option>
+        <option>M7</option>
+        <option>M8</option>
+    </select>
+    <br>
+
+    <h3>Assignment Type</h3>
+    <input type="text" id="type">
+    <br>
+
+    <h3>Assignment Title</h3>
+    <input type="text" id="title">
+    <br>
+
+    <h3>Overview</h3>
+    <div class="quill-editor" id="overview"></div>
+    <br>
+
+    <h3>Guidelines</h3>
+    <div class="quill-editor" id="guidelines"></div>
+    <br>
+
+    <div id="rubric-section">
+        <h3>Rubric</h3>
+        <div class="quill-editor" id="rubric"></div>
+        <br>
+    </div>
+
+    <div id="technical-support-section">
+        <h3>Technical Support</h3>
+        <div class="quill-editor" id="technical-support"></div>
+        <br>
+    </div>
+
+    <button onclick="copyToClipboard()">Copy HTML to Clipboard</button>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
